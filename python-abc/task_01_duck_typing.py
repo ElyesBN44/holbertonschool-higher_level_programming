@@ -5,18 +5,19 @@ and a function shape_info that uses duck typing
 to print the area and perimeter of a shape."""
 
 from abc import ABC, abstractmethod
+from math import pi
 
 
 class Shape(ABC):
     """Abstract class representing a shape."""
 
     @abstractmethod
-    def area(self):
+    def area(self) -> float:
         """Abstract method for calculating the area of the shape."""
         pass
 
     @abstractmethod
-    def perimeter(self):
+    def perimeter(self) -> float:
         """Abstract method for calculating the perimeter of the shape."""
         pass
 
@@ -24,28 +25,27 @@ class Shape(ABC):
 class Circle(Shape):
     """Class representing a circle, inheriting from Shape."""
 
-    def __init__(self, radius):
+    def __init__(self, radius: float):
         """Initializes the Circle with a radius.
 
         Args:
             radius (float): The radius of the circle.
         """
         self.radius = radius
-        self.pi = 3.141592653589793
 
-    def area(self):
+    def area(self) -> float:
         """Returns the area of the circle."""
-        return self.pi * (self.radius ** 2)
+        return pi * (self.radius ** 2)
 
-    def perimeter(self):
+    def perimeter(self) -> float:
         """Returns the perimeter of the circle."""
-        return 2 * self.pi * self.radius
+        return 2 * pi * self.radius
 
 
 class Rectangle(Shape):
     """Class representing a rectangle, inheriting from Shape."""
 
-    def __init__(self, width, height):
+    def __init__(self, width: float, height: float):
         """Initializes the Rectangle with width and height.
 
         Args:
@@ -55,16 +55,16 @@ class Rectangle(Shape):
         self.width = width
         self.height = height
 
-    def area(self):
+    def area(self) -> float:
         """Returns the area of the rectangle."""
         return self.width * self.height
 
-    def perimeter(self):
+    def perimeter(self) -> float:
         """Returns the perimeter of the rectangle."""
         return 2 * (self.width + self.height)
 
 
-def shape_info(shape):
+def shape_info(shape: Shape) -> None:
     """Prints the area and perimeter of a shape using duck typing.
 
     Args:
