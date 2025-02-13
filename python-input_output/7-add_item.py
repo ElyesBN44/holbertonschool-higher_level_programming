@@ -1,8 +1,12 @@
 #!/usr/bin/python3
+"""
+Script that adds all command-line arguments to a Pyth list.
+Uses save_to_json_file and load_from_json_file functions.
+"""
 import sys
 import json
-from 5-save_to_json_file import save_to_json_file
-from 6-load_from_json_file import load_from_json_file
+from save_to_json_file import save_to_json_file
+from load_from_json_file import load_from_json_file
 
 filename = "add_item.json"
 
